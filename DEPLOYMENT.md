@@ -40,6 +40,12 @@ Click **"Deploy"**. Vercel will:
 
 ---
 
+## How Backend Integration Works (Technical Details)
+This project uses a file named `api/index.py` as the entry point. Vercel automatically detects this and turns your Python endpoint into a **Serverless Function**.
+*   The `vercel.json` file routes all requests starting with `/api` to this Python function.
+*   **No explicit backend connection step is needed** on Vercel other than setting the environment variables.
+
 ## Troubleshooting
 *   **Database Error**: If the logs say "Can't connect to MySQL server on 'localhost'", you forgot to set the `DATABASE_URI` env var to a cloud database.
 *   **Missing Dependencies**: If the build fails saying `ModuleNotFoundError`, make sure all packages are in `backend/requirements.txt` (which they are!).
+
