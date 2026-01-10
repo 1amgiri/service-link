@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { GoogleLogin } from '@react-oauth/google';
+import { API_BASE_URL } from '../constants';
 
 interface LoginPageProps {
   onLogin: (email: string) => void;
@@ -19,7 +20,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
       setIsLoading(true);
       setError('');
       try {
-        const response = await fetch('http://localhost:5000/api/auth/login', {
+        const response = await fetch(`${API_BASE_URL}/auth/login`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, password }),
@@ -93,7 +94,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
               onSuccess={async (credentialResponse) => {
                 setIsLoading(true);
                 try {
-                  const response = await fetch('http://localhost:5000/api/auth/google', {
+                  const response = await fetch(`${API_BASE_URL}/auth/google`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ token: credentialResponse.credential }),
