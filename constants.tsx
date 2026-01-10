@@ -78,4 +78,5 @@ export const PROFESSIONALS: Professional[] = [
   }
 ];
 
-export const API_BASE_URL = 'http://localhost:5000/api';
+// Use relative path for production (Vercel rewrites), localhost for local dev
+export const API_BASE_URL = import.meta.env.PROD ? '/api' : 'http://localhost:5000/api';

@@ -55,7 +55,7 @@ def google_login():
     
     try:
         # Specify the CLIENT_ID of the app that accesses the backend:
-        CLIENT_ID = "288921506718-u24926jau1kav1adn1snvvei1t3dh1u3.apps.googleusercontent.com"
+        CLIENT_ID = "288921506718-4r7ui52h7jbk31ru7p9lv3q56vjcoblv.apps.googleusercontent.com"
         idinfo = id_token.verify_oauth2_token(token, requests.Request(), CLIENT_ID)
 
         # ID token is valid. Get the user's Google Account information from the decoded token.
